@@ -1,12 +1,10 @@
 import mysql.connector
-
 # Connect to MySQL (replace 'localhost', 'root', and 'your_password' with your MySQL credentials)
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
     password="Localhost@123",
     database="firstdatabase"  # Specify your database name
-    # ssl_ca=None
 )
 
 # Create a cursor object to execute SQL queries
@@ -68,4 +66,10 @@ for row in rows:
     print(row)
 
 print("\n")
+
 conn.close()
+x=input("enter the text")
+if x == "hello":
+    import second
+else:
+    print("something went wrong")
