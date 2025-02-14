@@ -26,7 +26,9 @@ class RequestHandler(BaseHTTPRequestHandler):
             response = user_service.create_user(
                 user_data["name"],
                 user_data["email"],
-                user_data["password"]
+                user_data["password"],
+                user_data["age"],
+                user_data["phone"]
             )
             self._set_headers()
             self.wfile.write(json.dumps(response).encode())
@@ -41,7 +43,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             post_data = self.rfile.read(content_length)
             user_data = json.loads(post_data)
 
-            response = user_service.update_user(user_id, user_data.get("name"), user_data.get("email"))
+            response = user_service.update_user(user_id, user_data.get("name"), user_data.get("email"), user_data.get("age"), user_data.get("phone"))
             self._set_headers()
             self.wfile.write(json.dumps(response).encode())
 

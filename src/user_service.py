@@ -22,11 +22,11 @@ def get_users():
     return users
 
 # for updating user using his id
-def update_user(user_id, name=None, email=None,phone=None):
+def update_user(user_id, name=None, email=None,age=None,phone=None):
     conn = get_db_connection()
     cursor = conn.cursor()
-    query = "UPDATE users SET name = %s, email = %s, phone = %s WHERE id = %s"
-    cursor.execute(query, (name, email,phone, user_id))
+    query = "UPDATE users SET name = %s, email = %s,age = %s, phone = %s WHERE id = %s"
+    cursor.execute(query, (name, email,age,phone, user_id))
     conn.commit()
     cursor.close()
     conn.close()
